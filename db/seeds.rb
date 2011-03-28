@@ -20,9 +20,9 @@ team_member_1 = User.new(:first_name => 'Ben',
 team_member_1.save_without_session_maintenance
 
 # FIXME
-team_member_2 = User.new(:first_name => 'YOUR_FIRST_NAME',
-                         :last_name => 'YOUR_LAST_NAME',
-                         :email => 'PARTNER2@mines.edu',
+team_member_2 = User.new(:first_name => 'Chad',
+                         :last_name => 'Mckenna',
+                         :email => 'cmckenna@mines.edu',
                          :password => 'changeme',
                          :password_confirmation => 'changeme',
                          :role => r)
