@@ -19,7 +19,7 @@ team_member_1 = User.new(:first_name => 'Ben',
 team_member_1.save_without_session_maintenance
 
 team_member_2 = User.new(:first_name => 'Chad',
-                         :last_name => 'Mckenna',
+                         :last_name => 'McKenna',
                          :email => 'cmckenna@mines.edu',
                          :password => 'changeme',
                          :password_confirmation => 'changeme',
