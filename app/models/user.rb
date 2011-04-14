@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_paper_trail
   
   belongs_to :role, :counter_cache => true
+  
+  validate
 
   default_scope :include => :role
 
@@ -27,9 +29,19 @@ class User < ActiveRecord::Base
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
   
-  def to_s
+  def full_name
     "#{self.first_name} #{self.last_name}"
   end
+  
+  def to_s
+    self.full_name
+  end
+  
+  protected
+  
+    def validate
+      errors.add_to_base "User must have role." if self.role.nil?
+    end
 
   private
 
