@@ -1,0 +1,21 @@
+- title "Components"
+
+%table
+  %tr
+    %th Name
+    %th Age
+    %th Attack
+    %th Gender
+    %th Description
+  - for component in @components
+    %tr
+      %td= h component.name
+      %td= h component.age
+      %td= h component.attack
+      %td= h component.gender
+      %td= h component.description
+      %td= link_to 'Show', component
+      %td= link_to 'Edit', edit_component_path(component)
+      %td= link_to 'Destroy', component, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Component", new_component_path

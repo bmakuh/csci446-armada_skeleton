@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  age: 1
+  attack: MyString
+  gender: MyString
+  description: MyString
+
+two:
+  name: MyString
+  age: 1
+  attack: MyString
+  gender: MyString
+  description: MyString

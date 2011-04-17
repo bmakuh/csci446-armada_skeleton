@@ -43,10 +43,8 @@ class User < ActiveRecord::Base
       errors.add_to_base "User must have role." if self.role.nil?
     end
 
-  private
-
     def assign_default_role
-      self.role = Role.find_by_name('member') if role_id.blank?
+      self.role = Role.find_by_name('member') if role.nil?
     end
 
 end
