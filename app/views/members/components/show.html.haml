@@ -1,0 +1,25 @@
+%p
+  %strong Name:
+  =h @component.name
+%p
+  %strong Age:
+  =h @component.age
+%p
+  %strong Cost:
+  =h @component.cost
+%p
+  %strong Attack:
+  =h @component.attack
+%p
+  %strong Gender:
+  =h @component.gender
+%p
+  %strong Description:
+  =h @component.description
+
+%p
+  = link_to "Edit", edit_members_component_path(@component)
+  |
+  = link_to "Destroy", members_component_path(@component), :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", members_components_path

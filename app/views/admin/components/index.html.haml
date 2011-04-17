@@ -1,0 +1,31 @@
+- for component in @components
+  %div#raptor
+    %div.picture
+      Picture goes here.
+    %div
+      %span= link_to 'Star Widget', component
+    %div
+      Name:
+      %span= h component.name
+    %div
+      Age:
+      %span= h component.age
+    %div
+      Cost:
+      %span= h component.cost
+    %div
+      Attack:
+      %span= h component.attack
+    %div
+      Gender:
+      %span= h component.gender
+    %div
+      Description:
+      %span= h component.description
+    %div
+      %span= link_to 'Show me the raptor', admin_component_path(component)
+      %span= link_to 'Edit raptor', edit_admin_component_path(component)
+      %span= link_to 'Kill raptor', admin_component_path(component), :confirm => 'Are you sure?', :method => :delete
+
+%p= will_paginate @components
+%p= link_to "Invent a New Velociraptor", new_admin_component_path

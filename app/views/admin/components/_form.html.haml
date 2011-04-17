@@ -1,0 +1,28 @@
+- form_for @component do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :age
+    %br
+    = f.text_field :age
+  %p
+    = f.label :cost
+    %br
+    = f.text_field :cost
+  %p
+    = f.label :attack
+    %br
+    = f.text_field :attack
+  %p
+    = f.label :gender
+    %br
+    = f.text_field :gender
+  %p
+    = f.label :description
+    %br
+    = f.text_field :description
+  %p
+    = f.submit
