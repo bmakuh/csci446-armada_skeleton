@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :components
 
-
-  map.root :controller => "application", :action => "show"
+  map.root :components
+  #map.root :controller => "application", :action => "show"
   map.logout 'logout', :controller => "user_sessions", :action => "destroy"
   map.login 'login', :controller => "user_sessions", :action => "new"
   map.resources :user_sessions, :only => [:new, :create, :destroy]
@@ -14,11 +14,13 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :roles
     admin.resources :users
+    admin.resources :components
     admin.root :controller => 'admin', :action => 'index'
   end
 
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
+    members.resources :components
     members.root :controller => 'members', :action => 'index'
   end
 

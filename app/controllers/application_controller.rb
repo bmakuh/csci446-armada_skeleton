@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
   filter_parameter_logging :password
-  helper_method :current_user_session, :current_user, :home_url_for
+  helper_method :current_user_session, :current_user, :home_url_for, :component_url_for
 
   # A simple route for the application home page or root_url.
   def show
@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
     def home_url_for(user)
       return root_url if user.nil?
       user.is_admin? ? admin_root_url : members_root_url
+    end
+    
+    def component_url_for(user)
+      return root_url if user.nil?
+      user.is_admin? ? admin_components_path : members_components_path
     end
 
   private

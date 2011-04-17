@@ -1,21 +1,27 @@
-- title "Components"
+- for component in @components
+  %div#raptor
+    %div.picture
+      Picture goes here.
+    %div
+      Name:
+      %span= h component.name
+    %div
+      Age:
+      %span= h component.age
+    %div
+      Cost:
+      %span= h component.cost
+    %div
+      Attack:
+      %span= h component.attack
+    %div
+      Gender:
+      %span= h component.gender
+    %div
+      Description:
+      %span= h component.description
+    %div
+      %span= link_to 'Show me the raptor', component
 
-%table
-  %tr
-    %th Name
-    %th Age
-    %th Attack
-    %th Gender
-    %th Description
-  - for component in @components
-    %tr
-      %td= h component.name
-      %td= h component.age
-      %td= h component.attack
-      %td= h component.gender
-      %td= h component.description
-      %td= link_to 'Show', component
-      %td= link_to 'Edit', edit_component_path(component)
-      %td= link_to 'Destroy', component, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Component", new_component_path
+%p= will_paginate @components
+%p= link_to "Invent a New Velociraptor", login_path

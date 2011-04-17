@@ -1,10 +1,9 @@
 PaperTrail.whodunnit = 'Seed Data Script'
 
-
 # Seed the roles.
-Role.create!(:name => 'developer', :description => 'The system developer. There is no higher access level.')
-Role.create!(:name => 'administrator', :description => 'A system administrator. Full access to all features.')
-Role.create!(:name => 'member', :description => 'A typical application user.')
+#Role.create!(:name => 'developer', :description => 'The system developer. There is no higher access level.')
+#Role.create!(:name => 'administrator', :description => 'A system administrator. Full access to all features.')
+#Role.create!(:name => 'member', :description => 'A typical application user.')
 
 
 # Seed developer users.
@@ -34,3 +33,17 @@ yong = User.new(:first_name => 'Yong',
                 :role => r)
 yong.save_without_session_maintenance
 
+# Seed components.
+Component.create(:name => 'Steven',
+                 :age => 16, 
+                 :attack => '200',
+                 :gender => 'male',
+                 :cost => '200',
+                 :description => 'Steven was genetically engineered on Isla Sorna and was later shipped to Isla Nora where he was placed on display at Jurrasic Park.')
+
+Component.create(:name => 'Patrick',
+                :age => 7, 
+                :attack => '900',
+                :gender => 'male',
+                :cost => '200',
+                :description => "Patrick likes to parrty. With two 'R's.")
