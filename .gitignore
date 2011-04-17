@@ -19,4 +19,4 @@ test/coverage/*
 Vagrantfile
 *.box
 *.*~
-armada.gitignore
+armada.komodoproject
