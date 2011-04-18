@@ -3,13 +3,13 @@ class Component < ActiveRecord::Base
   
   has_attached_file :photo,
                     :styles => {
-                      :thumb => ["72x72#"],
-                      :medium => ["300x300#"]
-                    },
-                    :default_url => '/images/default_velociraptor.png',
-                    :storage => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-                    :path => "cs446/csci446-armada_skeleton/#{Rails.env}/:attachment/:id/:style.:extension"
+                        :thumb => ["150x150#"],
+                        :medium => ["300x300#"]
+                      },
+                      :default_url => '/images/default_velociraptor.png',
+                      :storage => :s3,
+                      :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+                      :path => "cs446/hipsters/#{Rails.env}/:attachment/:id/:style.:extension"
                     
   belongs_to :creator, :class_name => "User"
   

@@ -15,7 +15,7 @@ class Admin::ComponentsController < Admin::AdminController
     @component = Component.new(params[:component])
     if @component.save
       flash[:notice] = "Successfully bred raptor."
-      redirect_to @component
+      redirect_to admin_component_path(@component)
     else
       render :action => 'new'
     end
@@ -29,7 +29,7 @@ class Admin::ComponentsController < Admin::AdminController
     @component = Component.find(params[:id])
     if @component.update_attributes(params[:component])
       flash[:notice] = "Successfully updated raptor."
-      redirect_to @component
+      redirect_to admin_component_path(@component)
     else
       render :action => 'edit'
     end
@@ -39,6 +39,6 @@ class Admin::ComponentsController < Admin::AdminController
     @component = Component.find(params[:id])
     @component.destroy
     flash[:notice] = "Successfully destroyed raptor."
-    redirect_to components_url
+    redirect_to admin_components_path
   end
 end

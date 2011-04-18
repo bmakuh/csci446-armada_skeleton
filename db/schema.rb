@@ -9,7 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110418044309) do
+=======
+ActiveRecord::Schema.define(:version => 20110418052825) do
+>>>>>>> 03078e51246b65ca3c89d47e942f8c29cb429ec3
 
   create_table "components", :force => true do |t|
     t.string   "name"
