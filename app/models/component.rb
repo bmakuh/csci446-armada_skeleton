@@ -1,6 +1,8 @@
 class Component < ActiveRecord::Base
   attr_accessible :name, :age, :attack, :gender, :description, :cost
   
+  belongs_to :creator, :class_name => "User"
+  
   has_attached_file :photo,
                     :styles => {
                         :thumb => ["150x150#"],
@@ -10,8 +12,7 @@ class Component < ActiveRecord::Base
                       :storage => :s3,
                       :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                       :path => "cs446/hipsters/#{Rails.env}/:attachment/:id/:style.:extension"
-                    
-  belongs_to :creator, :class_name => "User"
+                  
   
   def to_s
     name

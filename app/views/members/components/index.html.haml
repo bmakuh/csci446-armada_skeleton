@@ -1,3 +1,4 @@
+%p= link_to "Breed New Velociraptor", new_members_component_path
 - for component in @components
   %div.raptor
     %div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
@@ -27,4 +28,4 @@
       %span= link_to 'Kill raptor', members_component_path(component), :confirm => 'Are you sure?', :method => :delete
 
 %p= will_paginate @components
-%p= link_to "Invent a New Velociraptor", login_path
+%p= link_to "Breed New Velociraptor", new_members_component_path

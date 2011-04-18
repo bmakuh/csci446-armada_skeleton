@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   has_paper_trail
   
+  has_many :components
+  
   belongs_to :role, :counter_cache => true
   
   validate
