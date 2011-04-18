@@ -6,4 +6,4 @@ css_dir = "tmp/stylesheets"
 sass_dir = "app/stylesheets"
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
