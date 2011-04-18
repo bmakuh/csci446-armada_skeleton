@@ -1,3 +1,4 @@
+%div.picture= link_to image_tag(@component.photo.url(:medium)), @component
 %p
   %strong Name:
   =h @component.name
@@ -18,8 +19,4 @@
   =h @component.description
 
 %p
-  = link_to "Edit", edit_component_path(@component)
-  |
-  = link_to "Destroy", @component, :confirm => 'Are you sure?', :method => :delete
-  |
   = link_to "View All", components_path

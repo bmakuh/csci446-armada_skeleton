@@ -1,5 +1,9 @@
-- form_for @component do |f|
+- form_for [:admin, @component] do |f|
   = f.error_messages
+  %p
+    = f.label :photo
+    %br
+    = f.file_field :photo
   %p
     = f.label :name
     %br
