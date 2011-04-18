@@ -1,7 +1,8 @@
+%p= button_to "Breed a New Velociraptor", login_path
 - for component in @components
-  %div#raptor
-    %div.picture
-      Picture goes here.
+  %div.raptor
+    .picture
+      =link_to image_tag(component.photo.url(:thumb)), component_path(component)
     %div
       Name:
       %span= h component.name
@@ -24,4 +25,3 @@
       %span= link_to 'Show me the raptor', component
 
 %p= will_paginate @components
-%p= link_to "Invent a New Velociraptor", login_path

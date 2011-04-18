@@ -1,9 +1,8 @@
+%p= link_to "Breed a New Velociraptor", new_admin_component_path
 - for component in @components
-  %div#raptor
-    %div.picture
-      Picture goes here.
-    %div
-      %span= link_to 'Star Widget', component
+  %div.raptor
+    .picture
+      =link_to image_tag(component.photo.url(:thumb)), component_path(component)
     %div
       Name:
       %span= h component.name
@@ -28,4 +27,4 @@
       %span= link_to 'Kill raptor', admin_component_path(component), :confirm => 'Are you sure?', :method => :delete
 
 %p= will_paginate @components
-%p= link_to "Invent a New Velociraptor", new_admin_component_path
+%p= link_to "Breed a New Velociraptor", new_admin_component_path

@@ -14,7 +14,7 @@ class Admin::ComponentsController < Admin::AdminController
   def create
     @component = Component.new(params[:component])
     if @component.save
-      flash[:notice] = "Successfully created component."
+      flash[:notice] = "Successfully bred raptor."
       redirect_to @component
     else
       render :action => 'new'
@@ -28,7 +28,7 @@ class Admin::ComponentsController < Admin::AdminController
   def update
     @component = Component.find(params[:id])
     if @component.update_attributes(params[:component])
-      flash[:notice] = "Successfully updated component."
+      flash[:notice] = "Successfully updated raptor."
       redirect_to @component
     else
       render :action => 'edit'
@@ -38,7 +38,7 @@ class Admin::ComponentsController < Admin::AdminController
   def destroy
     @component = Component.find(params[:id])
     @component.destroy
-    flash[:notice] = "Successfully destroyed component."
+    flash[:notice] = "Successfully destroyed raptor."
     redirect_to components_url
   end
 end
