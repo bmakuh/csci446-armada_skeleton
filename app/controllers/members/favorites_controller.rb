@@ -16,6 +16,7 @@ class Members::FavoritesController < Members::MembersController
     respond_to do |format|
       format.html
       format.xml { render :xml => @favorite }
+      format.js
     end
   end
 
