@@ -1,13 +1,43 @@
-%table
-  %tr
-    %th User
-    %th Component
-  - for favorite in @favorites
-    %tr
-      %td= h favorite.user_id
-      %td= h favorite.component_id
-      %td= link_to 'Show', members_favorite_path(favorite)
-      %td= link_to 'Edit', edit_members_favorite_path(favorite)
-      %td= link_to 'Destroy', members_favorite_path(favorite), :confirm => 'Are you sure?', :method => :delete
+- for favorite in @favorites
+  %div.raptor
+    -#%div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
+    -#%div
+    -#  = render :partial => "star", :locals => { :component => component }
+    %div
+      Name:
+      %span= h favorite.component.name
+    %div
+      Age:
+      %span= h favorite.component.age
+    %div
+      Cost:
+      %span= h favorite.component.cost
+    %div
+      Attack:
+      %span= h favorite.component.attack
+    %div
+      Gender:
+      %span= h favorite.component.gender
+    %div
+      Description:
+      %span= h favorite.component.description
+    %div
+      %span= link_to 'Show me the raptor', members_component_path(favorite.component)
+      %span= link_to 'Edit raptor', edit_members_component_path(favorite.component)
+      %span= link_to 'Kill raptor', members_component_path(favorite.component), :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "New Favorite", new_members_favorite_path
+-#%table
+-#  %tr
+-#    %th User
+-#    %th Component
+-#    %th Velociraptor
+-#  - for favorite in @favorites
+-#    %tr
+-#      %td= h favorite.user_id
+-#      %td= h favorite.component_id
+-#      %td= favorite.component
+-#      %td= link_to 'Show', members_favorite_path(favorite)
+-#      %td= link_to 'Edit', edit_members_favorite_path(favorite)
+-#      %td= link_to 'Destroy', members_favorite_path(favorite), :confirm => 'Are you sure?', :method => :delete
+-#
+-#%p= link_to "New Favorite", new_members_favorite_path
