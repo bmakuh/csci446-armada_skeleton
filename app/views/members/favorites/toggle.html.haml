@@ -1,0 +1,13 @@
+%table
+  %tr
+    %th User
+    %th Component
+  - for favorite in @favorites
+    %tr
+      %td= h favorite.user_id
+      %td= h favorite.component_id
+      %td= link_to 'Show', members_favorite_path(favorite)
+      %td= link_to 'Edit', edit_members_favorite_path(favorite)
+      %td= link_to 'Destroy', members_favorite_path(favorite), :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Favorite", new_members_favorite_path

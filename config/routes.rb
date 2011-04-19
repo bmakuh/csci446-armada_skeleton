@@ -23,7 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
     members.resources :components
-    members.resources :favorites
+    members.resources :favorites, :collection => { :toggle => :get }
     members.root :controller => 'members', :action => 'index'
   end
 

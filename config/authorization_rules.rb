@@ -4,6 +4,7 @@ authorization do
     has_permission_on :members_members, :to => :read
     has_permission_on :members_components, :to => :manage
     has_permission_on :members_favorites, :to => :manage
+    has_permission_on :members_favorites, :to => :toggle
   end
   role :administrator do
     includes :member

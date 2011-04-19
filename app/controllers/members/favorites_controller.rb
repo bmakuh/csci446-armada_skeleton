@@ -19,7 +19,7 @@ class Members::FavoritesController < Members::MembersController
     end
   end
 
-  def create
+  def created
     @favorite = Favorite.new(params[:favorite])
     respond_to do |format|
       if @favorite.save
@@ -64,5 +64,11 @@ class Members::FavoritesController < Members::MembersController
         format.xml  { head :unprocessable_entity }
       end
     end
+  end
+  
+  def toggle
+    #puts params[:id]
+    Favorite.create(:user_id => current_user.id, :component_id => params[:format])
+    redirect_to members_components_path
   end
 end
