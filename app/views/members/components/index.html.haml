@@ -3,7 +3,7 @@
   %div.raptor
     %div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
     %div
-      %span= link_to 'Star Widget', component
+      %span= link_to image_tag( "/images/icon_small_star.png"), members_component_path(component)
     %div
       Name:
       %span= h component.name
@@ -23,6 +23,7 @@
       Description:
       %span= h component.description
     %div
+      %span by #{component.creator}
       %span= link_to 'Show me the raptor', members_component_path(component)
       %span= link_to 'Edit raptor', edit_members_component_path(component)
       %span= link_to 'Kill raptor', members_component_path(component), :confirm => 'Are you sure?', :method => :delete
