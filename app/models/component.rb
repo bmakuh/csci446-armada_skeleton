@@ -1,5 +1,5 @@
 class Component < ActiveRecord::Base
-  attr_accessible :name, :age, :attack, :gender, :description, :cost, :STAR_PATH
+  attr_accessible :name, :age, :attack, :gender, :description, :cost
   
   belongs_to :creator, :class_name => "User"
   
