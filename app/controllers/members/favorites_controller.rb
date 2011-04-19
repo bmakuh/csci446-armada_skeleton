@@ -71,12 +71,17 @@ class Members::FavoritesController < Members::MembersController
     component_id = params[:format]
     component = Component.find(component_id)
     
-    if !current_user.is_favorite?(component)
-      Favorite.create(:user_id => current_user.id, :component_id => params[:format])
-    else
-      favorite = Favorite.find_by_user_id_and_component_id(current_user.id, component_id)
-      favorite.destroy
+    respond_to do |format|    
+      if !current_user.is_favorite?(component)
+        Favorite.create(:user_id => current_user.id, :component_id => params[:format])
+        format.html { redirect_to :back }
+        format.js
+      else
+        favorite = Favorite.find_by_user_id_and_component_id(current_user.id, component_id)
+        favorite.destroy
+        format.html { redirect_to :back }
+        format.js
+      end
     end
-    redirect_to :back
   end
 end
