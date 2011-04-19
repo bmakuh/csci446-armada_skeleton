@@ -2,7 +2,7 @@
   .picture-300
     = link_to image_tag(@component.photo.url(:medium)), @component
   %p
-    = link_to image_tag(@component.STAR_PATH), new_members_favorite_path(@component)
+    = render :partial => "star", :locals => { :component => @component }
   %p
     %strong Name:
     =h @component.name

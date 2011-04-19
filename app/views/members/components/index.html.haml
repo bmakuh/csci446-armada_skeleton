@@ -3,10 +3,7 @@
   %div.raptor
     %div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
     %div
-      - if current_user.is_favorite?(component)
-        %span= link_to image_tag("/images/icon_small_star.png"), toggle_members_favorites_path(component.id)
-      - else
-        %span= link_to image_tag("/images/icon_small_star_inactive.png"), toggle_members_favorites_path(component.id)
+      = render :partial => "star", :locals => { :component => component }
     %div
       Name:
       %span= h component.name

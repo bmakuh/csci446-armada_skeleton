@@ -77,6 +77,6 @@ class Members::FavoritesController < Members::MembersController
       favorite = Favorite.find_by_user_id_and_component_id(current_user.id, component_id)
       favorite.destroy
     end
-    redirect_to members_components_path
+    redirect_to :back
   end
 end
