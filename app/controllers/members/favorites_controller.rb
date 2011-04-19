@@ -67,8 +67,15 @@ class Members::FavoritesController < Members::MembersController
   end
   
   def toggle
-    #puts params[:id]
-    Favorite.create(:user_id => current_user.id, :component_id => params[:format])
+    component_id = params[:format]
+    component = Component.find(component_id)
+    
+    if !current_user.is_favorite?(component)
+      Favorite.create(:user_id => current_user.id, :component_id => params[:format])
+    else
+      favorite = Favorite.find_by_user_id_and_component_id(current_user.id, component_id)
+      favorite.destroy
+    end
     redirect_to members_components_path
   end
 end

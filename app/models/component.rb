@@ -5,10 +5,6 @@ class Component < ActiveRecord::Base
   
   has_many :favorites
   
-  def STAR_PATH
-    "/images/icon_small_star_inactive.png"
-  end
-  
   has_attached_file :photo,
                     :styles => {
                         :thumb => ["150x150#"],
