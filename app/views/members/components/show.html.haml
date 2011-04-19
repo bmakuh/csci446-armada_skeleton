@@ -23,8 +23,9 @@
     =h @component.description
 
 %p
-  = link_to "Edit", edit_members_component_path(@component)
-  |
-  = link_to "Destroy", members_component_path(@component), :confirm => 'Are you sure?', :method => :delete
-  |
+  - if @component.creator.eql?(current_user)
+    = link_to "Edit", edit_members_component_path(@component)
+    |
+    = link_to "Destroy", members_component_path(@component), :confirm => 'Are you sure?', :method => :delete
+    |
   = link_to "View All", members_components_path

@@ -27,6 +27,7 @@ class Members::ComponentsController < Members::MembersController
 
   def create
     @component = Component.new(params[:component])
+    @component.creator_id = current_user.id
     respond_to do |format|
       if @component.save
         flash[:notice] = "Successfully created velociraptor."
@@ -40,6 +41,11 @@ class Members::ComponentsController < Members::MembersController
   end
 
   def edit
+    @component = Component.find(params[:id])
+    if !@component.creator.eql?(current_user)
+      flash[:error] = "You do not have access to this page."
+      redirect_to members_components_path
+    end
   end
 
   def update
