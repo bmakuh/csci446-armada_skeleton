@@ -1,8 +1,8 @@
 - for favorite in @favorites
   %div.raptor
-    -#%div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
-    -#%div
-    -#  = render :partial => "star", :locals => { :component => component }
+    %div.picture= link_to image_tag(favorite.component.photo.url(:thumb)), members_component_path(favorite.component)
+    -#%div{ :id => "fave#{favorite.component.id}" }
+    -#  = render :partial => "members/components/component", :object => favorite.component
     %div
       Name:
       %span= h favorite.component.name
