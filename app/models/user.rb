@@ -32,6 +32,17 @@ class User < ActiveRecord::Base
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
   
+  def is_favorite?(component)
+    user_id = self.id
+    component_id = component.id
+    favorite = Favorite.find_by_user_id_and_component_id(user_id, component_id)
+    if favorite.eql? nil
+      false
+    else
+      true
+    end
+  end
+  
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
