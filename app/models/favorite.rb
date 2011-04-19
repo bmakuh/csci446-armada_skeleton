@@ -1,6 +1,6 @@
 class Favorite < ActiveRecord::Base
   attr_accessible :user_id, :component_id
   
-  belongs_to :users
-  belongs_to :components
+  belongs_to :user
+  belongs_to :component
 end

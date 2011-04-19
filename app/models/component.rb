@@ -17,6 +17,6 @@ class Component < ActiveRecord::Base
                   
   
   def to_s
-    name
+    self.name
   end
 end

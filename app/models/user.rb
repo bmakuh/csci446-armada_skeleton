@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     role_symbols.include?(:administrator) || role_symbols.include?(:developer)
   end
   
+  def is_member?
+    role_symbols.include?(:member)
+  end
+  
   def is_favorite?(component)
     user_id = self.id
     component_id = component.id

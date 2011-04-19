@@ -1,6 +1,6 @@
 class Members::FavoritesController < Members::MembersController
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.find_all_by_user_id(current_user.id)
     respond_to do |format|
       format.html
       format.xml { render :xml => @favorites }
