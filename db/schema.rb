@@ -9,15 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419022700) do
+ActiveRecord::Schema.define(:version => 20110419194256) do
 
   create_table "components", :force => true do |t|
     t.string   "name"
     t.integer  "age"
-    t.string   "cost"
+    t.integer  "cost"
     t.string   "attack"
     t.string   "gender"
     t.string   "description"
+    t.integer  "creator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20110419022700) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
   create_table "versions", :force => true do |t|

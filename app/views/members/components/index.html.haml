@@ -24,9 +24,9 @@
       %span= h component.description
     %div
       %span= link_to 'Show me the raptor', members_component_path(component)
-      - if component.creator == current_user
-      %span= link_to 'Edit raptor', edit_members_component_path(component)
-      %span= link_to 'Kill raptor', members_component_path(component), :confirm => 'Are you sure?', :method => :delete
+      - if component.creator.eql?(current_user)
+        %span= link_to 'Edit raptor', edit_members_component_path(component)
+        %span= link_to 'Kill raptor', members_component_path(component), :confirm => 'Are you sure?', :method => :delete
 
 %p= will_paginate @components
 %p= link_to "Breed New Velociraptor", new_members_component_path
