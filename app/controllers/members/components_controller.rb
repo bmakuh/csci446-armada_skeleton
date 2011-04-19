@@ -10,6 +10,11 @@ class Members::ComponentsController < Members::MembersController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @components }
+      format.js
+    end
   end
 
   def new
