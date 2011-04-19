@@ -22,13 +22,15 @@ class Members::ComponentsController < Members::MembersController
 
   def create
     @component = Component.new(params[:component])
-    if @component.save
-      flash[:notice] = "Successfully created velociraptor."
-      format.html { redirect_to members_component_path(@component) }
-      format.xml  { render :xml => @component, :status => :created, :location => @component }
-    else
-      format.html { render :action => 'new' }
-      format.xml  { render :xml => @component, :status => :unprocessable_entity }
+    respond_to do |format|
+      if @component.save
+        flash[:notice] = "Successfully created velociraptor."
+        format.html { redirect_to members_component_path(@component) }
+        format.xml  { render :xml => @component, :status => :created, :location => @component }
+      else
+        format.html { render :action => 'new' }
+        format.xml  { render :xml => @component, :status => :unprocessable_entity }
+      end
     end
   end
 

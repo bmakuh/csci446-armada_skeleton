@@ -9,11 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20110418044309) do
-=======
-ActiveRecord::Schema.define(:version => 20110418052825) do
->>>>>>> 03078e51246b65ca3c89d47e942f8c29cb429ec3
+ActiveRecord::Schema.define(:version => 20110419022700) do
 
   create_table "components", :force => true do |t|
     t.string   "name"
@@ -44,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20110418052825) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "component_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name",                       :null => false

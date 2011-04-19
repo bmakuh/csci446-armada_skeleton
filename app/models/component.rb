@@ -3,6 +3,8 @@ class Component < ActiveRecord::Base
   
   belongs_to :creator, :class_name => "User"
   
+  has_many :favorites
+  
   has_attached_file :photo,
                     :styles => {
                         :thumb => ["150x150#"],

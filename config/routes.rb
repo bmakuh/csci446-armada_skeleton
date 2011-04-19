@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :favorites
+
   map.resources :components
 
   map.root :components
@@ -21,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
     members.resources :components
+    members.resources :favorites
     members.root :controller => 'members', :action => 'index'
   end
 

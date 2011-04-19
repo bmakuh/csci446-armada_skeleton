@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_paper_trail
   
   has_many :components
+  has_many :favorites
   
   belongs_to :role, :counter_cache => true
   
