@@ -2,8 +2,8 @@
 - for component in @components
   %div.raptor
     %div.picture= link_to image_tag(component.photo.url(:thumb)), members_component_path(component)
-    %div
-      = render :partial => "star", :locals => { :component => component }
+    %div{ :id => "fave#{component.id}" }
+      = render :partial => "component", :object => component
     %div
       Name:
       %span= h component.name

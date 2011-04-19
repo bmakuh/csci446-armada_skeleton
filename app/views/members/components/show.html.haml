@@ -1,8 +1,8 @@
 %div.raptor
   .picture-300
     = link_to image_tag(@component.photo.url(:medium)), @component
-  %p
-    = render :partial => "star", :locals => { :component => @component }
+  %p{ :id => "fave#{@component.id}" }
+    = render :partial => "component", :object => @component
   %p
     %strong Name:
     =h @component.name
