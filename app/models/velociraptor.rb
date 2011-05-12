@@ -1,4 +1,4 @@
-class Component < ActiveRecord::Base
+class Velociraptor < ActiveRecord::Base
   attr_accessible :name, :age, :attack, :gender, :description, :cost
   
   belongs_to :creator, :class_name => "User"

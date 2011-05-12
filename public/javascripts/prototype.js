@@ -422,9 +422,9 @@ Object.extend(String.prototype, {
 
     return match[1].split(separator || '&').inject({ }, function(hash, pair) {
       if ((pair = pair.split('='))[0]) {
-        var key = decodeURIComponent(pair.shift());
+        var key = decodeURIvelociraptor(pair.shift());
         var value = pair.length > 1 ? pair.join('=') : pair[0];
-        if (value != undefined) value = decodeURIComponent(value);
+        if (value != undefined) value = decodeURIvelociraptor(value);
 
         if (key in hash) {
           if (!Object.isArray(hash[key])) hash[key] = [hash[key]];
@@ -998,7 +998,7 @@ var Hash = Class.create(Enumerable, (function() {
 
   function toQueryPair(key, value) {
     if (Object.isUndefined(value)) return key;
-    return key + '=' + encodeURIComponent(String.interpret(value));
+    return key + '=' + encodeURIvelociraptor(String.interpret(value));
   }
 
   return {
@@ -1063,7 +1063,7 @@ var Hash = Class.create(Enumerable, (function() {
 
     toQueryString: function() {
       return this.inject([], function(results, pair) {
-        var key = encodeURIComponent(pair.key), values = pair.value;
+        var key = encodeURIvelociraptor(pair.key), values = pair.value;
 
         if (values && typeof values == 'object') {
           if (Object.isArray(values))
@@ -1410,7 +1410,7 @@ Ajax.Response = Class.create({
   _getHeaderJSON: function() {
     var json = this.getHeader('X-JSON');
     if (!json) return null;
-    json = decodeURIComponent(escape(json));
+    json = decodeURIvelociraptor(escape(json));
     try {
       return json.evalJSON(this.request.options.sanitizeJSON ||
         !this.request.isSameOrigin());

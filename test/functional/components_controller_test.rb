@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class ComponentsControllerTest < ActionController::TestCase
+class velociraptorsControllerTest < ActionController::TestCase
   def test_index
     get :index
     assert_template 'index'
   end
 
   def test_show
-    get :show, :id => Component.first
+    get :show, :id => velociraptor.first
     assert_template 'show'
   end
 
@@ -17,38 +17,38 @@ class ComponentsControllerTest < ActionController::TestCase
   end
 
   def test_create_invalid
-    Component.any_instance.stubs(:valid?).returns(false)
+    velociraptor.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
 
   def test_create_valid
-    Component.any_instance.stubs(:valid?).returns(true)
+    velociraptor.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to component_url(assigns(:component))
+    assert_redirected_to velociraptor_url(assigns(:velociraptor))
   end
 
   def test_edit
-    get :edit, :id => Component.first
+    get :edit, :id => velociraptor.first
     assert_template 'edit'
   end
 
   def test_update_invalid
-    Component.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Component.first
+    velociraptor.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => velociraptor.first
     assert_template 'edit'
   end
 
   def test_update_valid
-    Component.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Component.first
-    assert_redirected_to component_url(assigns(:component))
+    velociraptor.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => velociraptor.first
+    assert_redirected_to velociraptor_url(assigns(:velociraptor))
   end
 
   def test_destroy
-    component = Component.first
-    delete :destroy, :id => component
-    assert_redirected_to components_url
-    assert !Component.exists?(component.id)
+    velociraptor = velociraptor.first
+    delete :destroy, :id => velociraptor
+    assert_redirected_to velociraptors_url
+    assert !velociraptor.exists?(velociraptor.id)
   end
 end

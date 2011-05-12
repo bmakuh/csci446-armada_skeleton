@@ -352,8 +352,8 @@ Ajax.Autocompleter = Class.create(Autocompleter.Base, {
   getUpdatedChoices: function() {
     this.startIndicator();
 
-    var entry = encodeURIComponent(this.options.paramName) + '=' +
-      encodeURIComponent(this.getToken());
+    var entry = encodeURIvelociraptor(this.options.paramName) + '=' +
+      encodeURIvelociraptor(this.getToken());
 
     this.options.parameters = this.options.callback ?
       this.options.callback(this.element, entry) : entry;
@@ -668,7 +668,7 @@ Ajax.InPlaceEditor = Class.create({
     this._controls.editor.disabled = true;
     var options = Object.extend({ method: 'get' }, this.options.ajaxOptions);
     Object.extend(options, {
-      parameters: 'editorId=' + encodeURIComponent(this.element.id),
+      parameters: 'editorId=' + encodeURIvelociraptor(this.element.id),
       onComplete: Prototype.emptyFunction,
       onSuccess: function(transport) {
         this._form.removeClassName(this.options.loadingClassName);
@@ -775,7 +775,7 @@ Ajax.InPlaceCollectionEditor = Class.create(Ajax.InPlaceEditor, {
     this.showLoadingText(this.options.loadingCollectionText);
     var options = Object.extend({ method: 'get' }, this.options.ajaxOptions);
     Object.extend(options, {
-      parameters: 'editorId=' + encodeURIComponent(this.element.id),
+      parameters: 'editorId=' + encodeURIvelociraptor(this.element.id),
       onComplete: Prototype.emptyFunction,
       onSuccess: function(transport) {
         var js = transport.responseText.strip();
@@ -813,7 +813,7 @@ Ajax.InPlaceCollectionEditor = Class.create(Ajax.InPlaceEditor, {
     this.showLoadingText(this.options.loadingText);
     var options = Object.extend({ method: 'get' }, this.options.ajaxOptions);
     Object.extend(options, {
-      parameters: 'editorId=' + encodeURIComponent(this.element.id),
+      parameters: 'editorId=' + encodeURIvelociraptor(this.element.id),
       onComplete: Prototype.emptyFunction,
       onSuccess: function(transport) {
         this._text = transport.responseText.strip();

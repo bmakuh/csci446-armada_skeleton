@@ -1,0 +1,27 @@
+%p= button_to "Breed a New Velociraptor", login_path
+- for velociraptor in @velociraptors
+  %div.raptor
+    .picture
+      =link_to image_tag(velociraptor.photo.url(:thumb)), velociraptor
+    %div
+      Name:
+      %span= h velociraptor.name
+    %div
+      Age:
+      %span= h velociraptor.age
+    %div
+      Cost:
+      %span= h velociraptor.cost
+    %div
+      Attack:
+      %span= h velociraptor.attack
+    %div
+      Gender:
+      %span= h velociraptor.gender
+    %div
+      Description:
+      %span= h velociraptor.description
+    %div
+      %span= link_to 'Show me the raptor', velociraptor
+
+%p= will_paginate @velociraptors

@@ -1,11 +1,11 @@
 %table
   %tr
     %th User
-    %th Component
+    %th velociraptor
   - for favorite in @favorites
     %tr
       %td= h favorite.user_id
-      %td= h favorite.component_id
+      %td= h favorite.velociraptor_id
       %td= link_to 'Show', members_favorite_path(favorite)
       %td= link_to 'Edit', edit_members_favorite_path(favorite)
       %td= link_to 'Destroy', members_favorite_path(favorite), :confirm => 'Are you sure?', :method => :delete

@@ -1,41 +1,41 @@
 - for favorite in @favorites
   %div.raptor
-    %div.picture= link_to image_tag(favorite.component.photo.url(:thumb)), members_component_path(favorite.component)
-    -#%div{ :id => "fave#{favorite.component.id}" }
-    -#  = render :partial => "members/components/component", :object => favorite.component
+    %div.picture= link_to image_tag(favorite.velociraptor.photo.url(:thumb)), members_velociraptor_path(favorite.velociraptor)
+    -#%div{ :id => "fave#{favorite.velociraptor.id}" }
+    -#  = render :partial => "members/velociraptors/velociraptor", :object => favorite.velociraptor
     %div
       Name:
-      %span= h favorite.component.name
+      %span= h favorite.velociraptor.name
     %div
       Age:
-      %span= h favorite.component.age
+      %span= h favorite.velociraptor.age
     %div
       Cost:
-      %span= h favorite.component.cost
+      %span= h favorite.velociraptor.cost
     %div
       Attack:
-      %span= h favorite.component.attack
+      %span= h favorite.velociraptor.attack
     %div
       Gender:
-      %span= h favorite.component.gender
+      %span= h favorite.velociraptor.gender
     %div
       Description:
-      %span= h favorite.component.description
+      %span= h favorite.velociraptor.description
     %div
-      %span= link_to 'Show me the raptor', members_component_path(favorite.component)
-      %span= link_to 'Edit raptor', edit_members_component_path(favorite.component)
-      %span= link_to 'Kill raptor', members_component_path(favorite.component), :confirm => 'Are you sure?', :method => :delete
+      %span= link_to 'Show me the raptor', members_velociraptor_path(favorite.velociraptor)
+      %span= link_to 'Edit raptor', edit_members_velociraptor_path(favorite.velociraptor)
+      %span= link_to 'Kill raptor', members_velociraptor_path(favorite.velociraptor), :confirm => 'Are you sure?', :method => :delete
 
 -#%table
 -#  %tr
 -#    %th User
--#    %th Component
+-#    %th velociraptor
 -#    %th Velociraptor
 -#  - for favorite in @favorites
 -#    %tr
 -#      %td= h favorite.user_id
--#      %td= h favorite.component_id
--#      %td= favorite.component
+-#      %td= h favorite.velociraptor_id
+-#      %td= favorite.velociraptor
 -#      %td= link_to 'Show', members_favorite_path(favorite)
 -#      %td= link_to 'Edit', edit_members_favorite_path(favorite)
 -#      %td= link_to 'Destroy', members_favorite_path(favorite), :confirm => 'Are you sure?', :method => :delete

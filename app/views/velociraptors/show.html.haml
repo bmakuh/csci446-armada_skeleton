@@ -1,6 +1,6 @@
 %div.raptor
   .picture-300
-    = link_to image_tag(@velociraptor.photo.url(:medium)), admin_velociraptor_path(@velociraptor)
+    = link_to image_tag(@velociraptor.photo.url(:medium)), velociraptor_path(@velociraptor)
   %p
     %strong Name:
     =h @velociraptor.name
@@ -19,10 +19,10 @@
   %p
     %strong Description:
     =h @velociraptor.description
-
-%p
-  = link_to "Edit", edit_admin_velociraptor_path(@velociraptor)
-  |
-  = link_to "Destroy", admin_velociraptor_path(@velociraptor), :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", admin_velociraptors_path
+  
+  %p
+    = link_to "Edit", edit_members_velociraptor_path(@velociraptor)
+    |
+    = link_to "Destroy", members_velociraptor_path(@velociraptor), :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", velociraptors_path

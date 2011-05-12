@@ -1,9 +1,9 @@
-- if current_user.is_favorite?(component)
+- if current_user.is_favorite?(velociraptor)
   - image_url = "/images/icon_small_star.png"
 - else
   - image_url = "/images/icon_small_star_inactive.png"
   
 = link_to_remote image_tag(image_url),
-                      :url => toggle_members_favorites_path(component.id),
+                      :url => toggle_members_favorites_path(velociraptor.id),
                       :method => :get,
-                      :update => "fave#{component.id}"
+                      :update => "fave#{velociraptor.id}"

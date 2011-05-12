@@ -33,8 +33,8 @@ yong = User.new(:first_name => 'Yong',
                 :role => r)
 yong.save_without_session_maintenance
 
-# Seed components.
-Component.create(:name => 'Steven',
+# Seed velociraptors.
+velociraptor.create(:name => 'Steven',
                  :age => 16, 
                  :attack => '200',
                  :gender => 'male',
@@ -42,7 +42,7 @@ Component.create(:name => 'Steven',
                  :creator_id => team_member_1.id,
                  :description => 'Steven was genetically engineered on Isla Sorna and was later shipped to Isla Nora where he was placed on display at Jurrasic Park.')
 
-Component.create(:name => 'Patrick',
+velociraptor.create(:name => 'Patrick',
                 :age => 7, 
                 :attack => '900',
                 :gender => 'male',

@@ -846,7 +846,7 @@ var Sortable = {
       if (!match) continue;
 
       var child = {
-        id: encodeURIComponent(match ? match[1] : null),
+        id: encodeURIvelociraptor(match ? match[1] : null),
         element: element,
         parent: parent,
         children: [],
@@ -927,17 +927,17 @@ var Sortable = {
   serialize: function(element) {
     element = $(element);
     var options = Object.extend(Sortable.options(element), arguments[1] || { });
-    var name = encodeURIComponent(
+    var name = encodeURIvelociraptor(
       (arguments[1] && arguments[1].name) ? arguments[1].name : element.id);
 
     if (options.tree) {
       return Sortable.tree(element, arguments[1]).children.map( function (item) {
         return [name + Sortable._constructIndex(item) + "[id]=" +
-                encodeURIComponent(item.id)].concat(item.children.map(arguments.callee));
+                encodeURIvelociraptor(item.id)].concat(item.children.map(arguments.callee));
       }).flatten().join('&');
     } else {
       return Sortable.sequence(element, arguments[1]).map( function(item) {
-        return name + "[]=" + encodeURIComponent(item);
+        return name + "[]=" + encodeURIvelociraptor(item);
       }).join('&');
     }
   }

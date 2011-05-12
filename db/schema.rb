@@ -11,7 +11,7 @@
 
 ActiveRecord::Schema.define(:version => 20110419194256) do
 
-  create_table "components", :force => true do |t|
+  create_table "velociraptors", :force => true do |t|
     t.string   "name"
     t.integer  "age"
     t.integer  "cost"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20110419194256) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "component_id"
+    t.integer  "velociraptor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

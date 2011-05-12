@@ -68,16 +68,16 @@ class Members::FavoritesController < Members::MembersController
   end
   
   def toggle
-    component_id = params[:format]
-    component = Component.find(component_id)
+    velociraptor_id = params[:format]
+    velociraptor = velociraptor.find(velociraptor_id)
     
     respond_to do |format|    
-      if !current_user.is_favorite?(component)
-        Favorite.create(:user_id => current_user.id, :component_id => params[:format])
+      if !current_user.is_favorite?(velociraptor)
+        Favorite.create(:user_id => current_user.id, :velociraptor_id => params[:format])
         format.js if request.xhr?
         format.html { redirect_to :back }
       else
-        favorite = Favorite.find_by_user_id_and_component_id(current_user.id, component_id)
+        favorite = Favorite.find_by_user_id_and_velociraptor_id(current_user.id, velociraptor_id)
         favorite.destroy
         format.js if request.xhr?
         format.html { redirect_to :back }

@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :favorites
 
-  map.resources :components
+  map.resources :velociraptors
 
-  map.root :components
+  map.root :velociraptors
   #map.root :controller => "application", :action => "show"
   map.logout 'logout', :controller => "user_sessions", :action => "destroy"
   map.login 'login', :controller => "user_sessions", :action => "new"
@@ -16,13 +16,13 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :roles
     admin.resources :users
-    admin.resources :components
+    admin.resources :velociraptors
     admin.root :controller => 'admin', :action => 'index'
   end
 
   map.namespace :members do |members|
     members.resources :users, :only => [:show, :edit, :update]
-    members.resources :components
+    members.resources :velociraptors
     members.resources :favorites, :collection => { :toggle => :get }
     members.root :controller => 'members', :action => 'index'
   end

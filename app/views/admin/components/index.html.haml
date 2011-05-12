@@ -1,31 +1,31 @@
-%p= link_to "Breed a New Velociraptor", new_admin_component_path
-- for component in @components
+%p= link_to "Breed a New Velociraptor", new_admin_velociraptor_path
+- for velociraptor in @velociraptors
   %div.raptor
     .picture
-      =link_to image_tag(component.photo.url(:thumb)), component_path(component)
-      %span= link_to 'Star Widget', component
+      =link_to image_tag(velociraptor.photo.url(:thumb)), velociraptor_path(velociraptor)
+      %span= link_to 'Star Widget', velociraptor
     %div
       Name:
-      %span= h component.name
+      %span= h velociraptor.name
     %div
       Age:
-      %span= h component.age
+      %span= h velociraptor.age
     %div
       Cost:
-      %span= h component.cost
+      %span= h velociraptor.cost
     %div
       Attack:
-      %span= h component.attack
+      %span= h velociraptor.attack
     %div
       Gender:
-      %span= h component.gender
+      %span= h velociraptor.gender
     %div
       Description:
-      %span= h component.description
+      %span= h velociraptor.description
     %div
-      %span= link_to 'Show me the raptor', admin_component_path(component)
-      %span= link_to 'Edit raptor', edit_admin_component_path(component)
-      %span= link_to 'Kill raptor', admin_component_path(component), :confirm => 'Are you sure?', :method => :delete
+      %span= link_to 'Show me the raptor', admin_velociraptor_path(velociraptor)
+      %span= link_to 'Edit raptor', edit_admin_velociraptor_path(velociraptor)
+      %span= link_to 'Kill raptor', admin_velociraptor_path(velociraptor), :confirm => 'Are you sure?', :method => :delete
 
-%p= will_paginate @components
-%p= link_to "Breed a New Velociraptor", new_admin_component_path
+%p= will_paginate @velociraptors
+%p= link_to "Breed a New Velociraptor", new_admin_velociraptor_path

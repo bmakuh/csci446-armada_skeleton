@@ -1,6 +1,6 @@
-class CreateComponents < ActiveRecord::Migration
+class Createvelociraptors < ActiveRecord::Migration
   def self.up
-    create_table :components do |t|
+    create_table :velociraptors do |t|
       t.string :name
       t.integer :age
       t.integer :cost
@@ -13,6 +13,6 @@ class CreateComponents < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :components
+    drop_table :velociraptors
   end
 end

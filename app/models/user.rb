@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_paper_trail
   
-  has_many :components
+  has_many :velociraptors
   has_many :favorites
   
   belongs_to :role, :counter_cache => true
@@ -36,10 +36,10 @@ class User < ActiveRecord::Base
     role_symbols.include?(:member)
   end
   
-  def is_favorite?(component)
+  def is_favorite?(velociraptor)
     user_id = self.id
-    component_id = component.id
-    favorite = Favorite.find_by_user_id_and_component_id(user_id, component_id)
+    velociraptor_id = velociraptor.id
+    favorite = Favorite.find_by_user_id_and_velociraptor_id(user_id, velociraptor_id)
     if favorite.eql? nil
       false
     else
