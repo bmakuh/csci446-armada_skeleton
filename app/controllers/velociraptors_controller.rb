@@ -1,12 +1,18 @@
-# the velociraptors controller
-
 class VelociraptorsController < ApplicationController
   def index
     @velociraptors = Velociraptor.paginate :per_page => 10, :page => params[:page]
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @velociraptors}
+    end
   end
 
   def show
     @velociraptor = Velociraptor.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @velociraptors}
+    end
   end
 
   def create
