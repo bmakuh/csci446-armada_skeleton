@@ -34,7 +34,7 @@ yong = User.new(:first_name => 'Yong',
 yong.save_without_session_maintenance
 
 # Seed velociraptors.
-velociraptor.create(:name => 'Steven',
+Velociraptor.create(:name => 'Steven',
                  :age => 16, 
                  :attack => '200',
                  :gender => 'male',
@@ -42,7 +42,7 @@ velociraptor.create(:name => 'Steven',
                  :creator_id => team_member_1.id,
                  :description => 'Steven was genetically engineered on Isla Sorna and was later shipped to Isla Nora where he was placed on display at Jurrasic Park.')
 
-velociraptor.create(:name => 'Patrick',
+Velociraptor.create(:name => 'Patrick',
                 :age => 7, 
                 :attack => '900',
                 :gender => 'male',
