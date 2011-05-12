@@ -1,8 +1,8 @@
-class Members::velociraptorsController < Members::MembersController
+class Members::VelociraptorsController < Members::MembersController
   before_filter :find_velociraptor
   
   def index
-    @velociraptors = velociraptor.paginate :per_page => 10, :page => params[:page]
+    @velociraptors = Velociraptor.paginate :per_page => 10, :page => params[:page]
     respond_to do |format|
       format.html
       format.xml { render :xml => @velociraptors }
@@ -18,7 +18,7 @@ class Members::velociraptorsController < Members::MembersController
   end
 
   def new
-    @velociraptor = velociraptor.new
+    @velociraptor = Velociraptor.new
     respond_to do |format|
       format.html
       format.xml { render :xml => @velociraptor }
@@ -26,7 +26,7 @@ class Members::velociraptorsController < Members::MembersController
   end
 
   def create
-    @velociraptor = velociraptor.new(params[:velociraptor])
+    @velociraptor = Velociraptor.new(params[:velociraptor])
     @velociraptor.creator_id = current_user.id
     respond_to do |format|
       if @velociraptor.save
@@ -41,7 +41,7 @@ class Members::velociraptorsController < Members::MembersController
   end
 
   def edit
-    @velociraptor = velociraptor.find(params[:id])
+    @velociraptor = Velociraptor.find(params[:id])
     if !@velociraptor.creator.eql?(current_user)
       flash[:error] = "You do not have access to this page."
       redirect_to members_velociraptors_path
@@ -77,6 +77,6 @@ class Members::velociraptorsController < Members::MembersController
   
   private
     def find_velociraptor
-      @velociraptor = velociraptor.find(params[:id]) if params[:id]
+      @velociraptor = Velociraptor.find(params[:id]) if params[:id]
     end
 end
