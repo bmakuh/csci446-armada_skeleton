@@ -17,21 +17,29 @@ class VelociraptorsController < ApplicationController
 
   def create
     @velociraptor = Velociraptor.new(params[:velociraptor])
-    if @velociraptor.save
-      flash[:notice] = "Successfully bred raptor."
-      redirect_to @velociraptor
-    else
-      render :action => 'new'
+    respond_to do |format|
+      if @velociraptor.save
+        flash[:notice] = "Successfully bred raptor."
+        format.html {redirect_to @velociraptor}
+        format.xml {render :xml => @velociraptor, :status => :created}
+      else
+        format.html {render :action => 'new'}
+        format.xml {render :xml => @velociraptor.errors, :status => :unprocessable_entity}
+      end
     end
   end
   
   def update
     @velociraptor = Velociraptor.find(params[:id])
-    if @velociraptor.update_attributes(params[:velociraptor])
-      flash[:notice] = "Successfully updated raptor."
-      redirect_to @velociraptor
-    else
-      render :action => 'edit'
+    respond_to do |format|
+      if @velociraptor.update_attributes(params[:velociraptor])
+        flash[:notice] = "Successfully updated raptor."
+        format.html {redirect_to @velociraptor}
+        format.xml {head :ok}
+      else
+        format.html {render :action => 'edit'}
+        format.xml {render :xml => @velociraptor.errors, :status => :unprocessable_entity}
+      end
     end
   end
 end
