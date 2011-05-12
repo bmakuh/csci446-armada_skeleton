@@ -1,18 +1,18 @@
-class Admin::velociraptorsController < Admin::AdminController
+class Admin::VelociraptorsController < Admin::AdminController
   def index
-    @velociraptors = velociraptor.paginate :per_page => 10, :page => params[:page]
+    @velociraptors = Velociraptor.paginate :per_page => 10, :page => params[:page]
   end
 
   def show
-    @velociraptor = velociraptor.find(params[:id])
+    @velociraptor = Velociraptor.find(params[:id])
   end
 
   def new
-    @velociraptor = velociraptor.new
+    @velociraptor = Velociraptor.new
   end
 
   def create
-    @velociraptor = velociraptor.new(params[:velociraptor])
+    @velociraptor = Velociraptor.new(params[:velociraptor])
     if @velociraptor.save
       flash[:notice] = "Successfully bred raptor."
       redirect_to admin_velociraptor_path(@velociraptor)
@@ -22,11 +22,11 @@ class Admin::velociraptorsController < Admin::AdminController
   end
 
   def edit
-    @velociraptor = velociraptor.find(params[:id])
+    @velociraptor = Velociraptor.find(params[:id])
   end
 
   def update
-    @velociraptor = velociraptor.find(params[:id])
+    @velociraptor = Velociraptor.find(params[:id])
     if @velociraptor.update_attributes(params[:velociraptor])
       flash[:notice] = "Successfully updated raptor."
       redirect_to admin_velociraptor_path(@velociraptor)
@@ -36,7 +36,7 @@ class Admin::velociraptorsController < Admin::AdminController
   end
 
   def destroy
-    @velociraptor = velociraptor.find(params[:id])
+    @velociraptor = Velociraptor.find(params[:id])
     @velociraptor.destroy
     flash[:notice] = "Successfully destroyed raptor."
     redirect_to admin_velociraptors_path
